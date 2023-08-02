@@ -1,0 +1,7 @@
+19:58:15.624 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 43 <init> - com.yc.MyConfig类上有@YcComponentScan注解﹐它要扫描的路径:com.yc.dao
+19:58:15.627 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 139 recursiveLoadBeanDefinition - 当前正在递归加载:/D:/idea/git125/selfspring02/target/classes/com/yc/dao
+19:58:15.630 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 195 findPackageClasses - 加载到一个待托管的类:com.yc.dao.UserDaoImpl
+19:58:15.631 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 139 recursiveLoadBeanDefinition - 当前正在递归加载:/D:/idea/git125/selfspring02/target/classes/com/yc/service
+19:58:15.633 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 195 findPackageClasses - 加载到一个待托管的类:com.yc.service.UserBizImpl
+19:58:15.633 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 121 createBean - spring容器托管了:userDaoImpl=>com.yc.dao.UserDaoImpl
+19:58:15.633 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 121 createBean - spring容器托管了:userBizImpl=>com.yc.service.UserBizImpl
