@@ -11,6 +11,7 @@
         <module name="aop1" />
         <module name="selfspring" />
         <module name="selfspring02" />
+        <module name="txbank" />
         <module name="selfprroxy" />
       </profile>
     </annotationProcessing>
