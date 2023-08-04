@@ -20,8 +20,8 @@ public class OpRecordJdbcTemplateImpl implements OpRecordDao{
 
     @Override
     public void insertOpRecord(OpRecord opRecord) {
-        String sql="insert into oprecord(accountid,opmoney,optime,transferid) values(?,?,now(),?)";
-        this.jdbcTemplate.update(sql, opRecord.getAccountid(), opRecord.getOpmoney(), opRecord.getTransferid());
+        String sql="insert into oprecord(accountid,opmoney,optime,optype,transferid) values(?,?,now(),?,?)";
+        this.jdbcTemplate.update(sql,opRecord.getAccountid(),opRecord.getOpmoney(),opRecord.getOptype().getKey(),opRecord.getTransferid());
     }
 
     @Override
