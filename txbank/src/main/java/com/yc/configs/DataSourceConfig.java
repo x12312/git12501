@@ -3,17 +3,24 @@ package com.yc.configs;
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @Log4j2
+@EnableTransactionManagement
+
 public class DataSourceConfig {
     @Value("root")
     private String mysqlname;
@@ -78,6 +85,13 @@ public class DataSourceConfig {
     }
 
     @Bean
+    public TransactionManager dataSourceTransactionManager(@Autowired @Qualifier(value = "dataSource") DataSource ds){
+        DataSourceTransactionManager tx = new DataSourceTransactionManager();
+        tx.setDataSource(ds);
+        return tx;
+    }
+
+    @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverclass);
@@ -109,7 +123,6 @@ public class DataSourceConfig {
         dds.setInitialSize(cpuCount);
         dds.setMaxActive(cpuCount*2);
         return dds;
-
     }
 
 
